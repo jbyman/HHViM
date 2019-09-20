@@ -9,7 +9,7 @@ function StartDebugger()
 	if g:DEBUGGER_ACTIVE == 0
 		:term hhvm -m debug
 		let g:DEBUGGER_ACTIVE = 1
-		:bprev<CR>
+		<C-w>j
 	endif
 endfunction
 
