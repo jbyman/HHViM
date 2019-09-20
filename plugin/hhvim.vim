@@ -6,6 +6,7 @@ set modifiable
 "Start debugger function
 function StartDebugger()
 	:term hhvm -m debug
+	<C-w>N
 endfunction
 
 "Add breakpoint
@@ -13,8 +14,10 @@ function AddBreakpoint()
 	:call matchadd('ColorColumn', '\%'.line('.').'l')
 	let current_line_number = line(".")
 	let file_name = expand('%:t:r')
-	:wincmd w
-	r "var_dump('hi');"
+	let command = "break " . file_name . ":" . current_line_number . "\<CR>"
+	:call term_sendkeys(3, command)
 endfunction
 
 "(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
+"https://vimhelp.org/eval.txt.html#term_sendkeys%28%29
+
