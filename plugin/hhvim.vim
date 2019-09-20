@@ -13,9 +13,10 @@ endfunction
 function AddBreakpoint()
 	:call matchadd('ColorColumn', '\%'.line('.').'l')
 	let current_line_number = line(".")
-	let file_name = expand('%:t:r')
+	let g:file_name = expand('%:t:r')
 	let command = "break " . file_name . ":" . current_line_number . "\<CR>"
-	:call term_sendkeys(3, command)
+	:call term_sendkeys(2, command)
+	echo command
 endfunction
 
 "(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
