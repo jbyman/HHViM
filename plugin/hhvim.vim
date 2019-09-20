@@ -10,5 +10,10 @@ endfunction
 "Add breakpoint
 function AddBreakpoint()
 	:call matchadd('ColorColumn', '\%'.line('.').'l')
+	let current_line_number = line(".")
+	let file_name = expand('%:t:r')
+	:wincmd w
+	r "var_dump('hi');"
 endfunction
 
+"(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
