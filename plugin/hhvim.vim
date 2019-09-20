@@ -6,7 +6,6 @@ set modifiable
 "Start debugger function
 function StartDebugger()
 	:term hhvm -m debug
-	<C-w>N
 endfunction
 
 "Add breakpoint
@@ -15,7 +14,7 @@ function AddBreakpoint()
 	let current_line_number = line(".")
 	let file_name = expand('%:t:r')
 	let command = "break " . file_name . ".php:" . current_line_number . "\<CR>"
-	:call term_sendkeys(2, command)<CR>
+	:call term_sendkeys(2, command)
 endfunction
 
 "(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
