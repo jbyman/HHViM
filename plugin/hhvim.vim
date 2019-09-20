@@ -9,6 +9,7 @@ function StartDebugger()
 	if g:DEBUGGER_ACTIVE == 0
 		:term hhvm -m debug
 		let g:DEBUGGER_ACTIVE = 1
+		<C-w>j
 	endif
 endfunction
 
@@ -23,9 +24,5 @@ endfunction
 
 "Run Debugger
 function RunDebugger()
-	:call term_sendkeys(2, "run")
+	:call term_sendkeys(2, "run\<CR>")
 endfunction
-
-"(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
-"https://vimhelp.org/eval.txt.html#term_sendkeys%28%29
-
