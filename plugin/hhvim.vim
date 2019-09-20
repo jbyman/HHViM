@@ -9,6 +9,6 @@ endfunction
 
 "Add breakpoint
 function AddBreakpoint()
-	:call matchadd('TermCursor', '\%'.line('.').'l')<CR>
+	:call matchadd('ColorColumn', '\%'.line('.').'l')<CR>
 endfunction
 
