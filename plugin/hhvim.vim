@@ -1,11 +1,15 @@
 "Set up mappings
 nnoremap <Leader>d :call StartDebugger()<CR>
 nnoremap <Leader>b :call AddBreakpoint()<CR>
-set modifiable
+nnoremap <Leader>r :call RunDebugger()<CR>
+let g:DEBUGGER_ACTIVE = 0
 
 "Start debugger function
 function StartDebugger()
-	:term hhvm -m debug
+	if g:DEBUGGER_ACTIVE == 0
+		:term hhvm -m debug
+		let g:DEBUGGER_ACTIVE = 1
+	endif
 endfunction
 
 "Add breakpoint
@@ -15,6 +19,11 @@ function AddBreakpoint()
 	let file_name = expand('%:t:r')
 	let command = "break " . file_name . ".php:" . current_line_number . "\<CR>"
 	:call term_sendkeys(2, command)
+endfunction
+
+"Run Debugger
+function RunDebugger()
+	:call term_sendkeys(2, "run")
 endfunction
 
 "(echo "var_dump('hi');"; cat <&0) | hhvm -m debug
