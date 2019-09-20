@@ -1,6 +1,7 @@
 "Set up mappings
 nnoremap <Leader>d :call StartDebugger()<CR>
 nnoremap <Leader>b :call AddBreakpoint()<CR>
+set modifiable
 
 "Start debugger function
 function StartDebugger()
