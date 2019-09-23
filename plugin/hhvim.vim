@@ -1,6 +1,6 @@
 "Set up mappings
 nnoremap <Leader>d :call StartDebugger()<CR>
-nnoremap <Leader>b :call AddBreakpoint()<CR>
+nnoremap <Leader>g :call AddBreakpoint()<CR>
 nnoremap <Leader>r :call RunDebugger()<CR>
 let g:DEBUGGER_ACTIVE = 0
 
