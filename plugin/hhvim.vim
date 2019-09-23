@@ -29,3 +29,10 @@ function RunDebugger()
 		:call term_sendkeys(2, "run\<CR>")
 	endif
 endfunction
+
+"Get remote branch
+function GetRemoteBranch()
+	let command = "slack checkpoint | awk 'FNR == 3 {print}' | awk '{ print $4 }'"
+	let result = system(command)
+	return result
+endfunction
